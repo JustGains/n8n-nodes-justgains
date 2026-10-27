@@ -1,0 +1,18 @@
+{
+	"node": "n8n-nodes-justgains.justGains",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Productivity", "Analytics"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://github.com/JustGains/n8n-nodes-justgains?tab=readme-ov-file#credentials"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://github.com/JustGains/n8n-nodes-justgains?tab=readme-ov-file"
+			}
+		]
+	}
+}
