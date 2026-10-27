@@ -32,18 +32,8 @@ export const workoutLogDescription: INodeProperties[] = [
 		type: 'number',
 		typeOptions: { minValue: 1, maxValue: 50 },
 		default: 50,
-		displayOptions: show(['getAll']),
-		description: 'Max number of results to return',
-	},
-	{
-		displayName: 'Limit',
-		name: 'limit',
-		type: 'number',
-		typeOptions: { minValue: 1, maxValue: 20 },
-		// JustGains returns at most 20 recent workouts, so the usual default of 50 cannot apply.
-		// eslint-disable-next-line n8n-nodes-base/node-param-default-wrong-for-limit
-		default: 20,
-		displayOptions: show(['getRecent']),
+		// Get Recent returns at most 20 workouts; JustGains caps larger limits.
+		displayOptions: show(['getAll', 'getRecent']),
 		description: 'Max number of results to return',
 	},
 	{

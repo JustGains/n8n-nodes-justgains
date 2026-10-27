@@ -99,6 +99,10 @@ Built with `@n8n/node-cli` 0.54 and tested on self-hosted n8n 2.45.4.
 
 ## Version history
 
+### 0.1.1
+
+Limit parameters default to 50, as in other n8n nodes.
+
 ### 0.1.0
 
 First release: the JustGains API credential and the JustGains node with 29 operations across workouts, workout logs, exercises, programs, food, bodyweight, routes, profile and insights.

@@ -52,10 +52,9 @@ export const exerciseDescription: INodeProperties[] = [
 		displayName: 'Limit',
 		name: 'limit',
 		type: 'number',
-		typeOptions: { minValue: 1, maxValue: 25 },
-		// JustGains returns at most 25 matches, so the usual default of 50 cannot apply.
-		// eslint-disable-next-line n8n-nodes-base/node-param-default-wrong-for-limit
-		default: 25,
+		// JustGains returns at most 25 matches; larger limits are capped there.
+		typeOptions: { minValue: 1, maxValue: 50 },
+		default: 50,
 		displayOptions: show(['search']),
 		description: 'Max number of results to return',
 	},
