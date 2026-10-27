@@ -17,7 +17,7 @@ export const routeDescription: INodeProperties[] = [
 				name: 'Create',
 				value: 'create',
 				description: 'Plan a road and path route and save it to your Routes',
-				action: 'Create a route',
+				action: 'Create route',
 			},
 		],
 		default: 'create',

@@ -15,19 +15,19 @@ export const programDescription: INodeProperties[] = [
 				name: 'Create',
 				value: 'create',
 				description: 'Build a multi-week program from plain text and save it',
-				action: 'Create a program',
+				action: 'Create program',
 			},
 			{
 				name: 'Get',
 				value: 'get',
 				description: 'Get a program with its weeks and days',
-				action: 'Get a program',
+				action: 'Get program',
 			},
 			{
 				name: 'Get Enrolled',
 				value: 'getEnrolled',
 				description: 'Get the programs you follow and your progress through them',
-				action: 'Get your programs',
+				action: 'Get enrolled programs',
 			},
 			{
 				name: 'Search',
@@ -39,7 +39,7 @@ export const programDescription: INodeProperties[] = [
 				name: 'Update Enrollment',
 				value: 'updateEnrollment',
 				description: 'Start, complete or abandon a program',
-				action: 'Update your enrollment in a program',
+				action: 'Update program enrollment',
 			},
 		],
 		default: 'search',
@@ -52,7 +52,7 @@ export const programDescription: INodeProperties[] = [
 		required: true,
 		default: '',
 		placeholder:
-			'Strength Base\nWeek 1, Day 1 Push: Barbell Bench Press 5x5, Overhead Press 3x8\nWeek 1, Day 2 Pull: ...',
+			'e.g. Strength Base\nWeek 1, Day 1 Push: Barbell Bench Press 5x5, Overhead Press 3x8\nWeek 1, Day 2 Pull: ...',
 		displayOptions: show(['create']),
 		description:
 			'The full program as plain text: a title line, then each week and day with its exercises and sets x reps (add weight or RPE where you like)',

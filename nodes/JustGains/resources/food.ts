@@ -48,7 +48,7 @@ export const foodDescription: INodeProperties[] = [
 				name: 'Get Diary',
 				value: 'getDiary',
 				description: 'Get a day of your food diary with totals and targets',
-				action: 'Get your food diary',
+				action: 'Get food diary',
 			},
 			{
 				name: 'Log',
@@ -181,7 +181,7 @@ export const foodCalls: ResourceCalls = {
 			return compact({
 				requestId: (fields.requestId as string) || stableRequestId.call(this, i),
 				mealSlot: this.getNodeParameter('mealSlot', i) as string,
-				items: jsonParameter.call(this, 'items', i),
+				items: jsonParameter.call(this, 'items', 'Foods', i),
 				entryDate: dateOnly(fields.entryDate),
 				loggedAt: fields.loggedAt,
 			});
@@ -190,7 +190,7 @@ export const foodCalls: ResourceCalls = {
 	remove: {
 		tool: 'remove_my_food',
 		args(i) {
-			return { items: jsonParameter.call(this, 'entries', i) };
+			return { items: jsonParameter.call(this, 'entries', 'Entries', i) };
 		},
 	},
 	getDiary: {

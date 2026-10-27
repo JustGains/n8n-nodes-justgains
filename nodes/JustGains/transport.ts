@@ -85,15 +85,16 @@ function failureMessage(body: IDataObject): string {
 export function jsonParameter(
 	this: IExecuteFunctions,
 	name: string,
+	displayName: string,
 	itemIndex: number,
 ): IDataObject | IDataObject[] {
-	return parseJson.call(this, this.getNodeParameter(name, itemIndex), name, itemIndex);
+	return parseJson.call(this, this.getNodeParameter(name, itemIndex), displayName, itemIndex);
 }
 
 export function parseJson(
 	this: IExecuteFunctions,
 	value: unknown,
-	name: string,
+	displayName: string,
 	itemIndex: number,
 ): IDataObject | IDataObject[] {
 	if (typeof value !== 'string') return value as IDataObject | IDataObject[];
@@ -101,7 +102,10 @@ export function parseJson(
 	try {
 		return JSON.parse(value) as IDataObject | IDataObject[];
 	} catch {
-		throw new NodeOperationError(this.getNode(), `"${name}" is not valid JSON`, { itemIndex });
+		throw new NodeOperationError(this.getNode(), `'${displayName}' is not valid JSON`, {
+			itemIndex,
+			description: `Check the '${displayName}' field: start from its example and keep the brackets, quotes and commas balanced.`,
+		});
 	}
 }
 

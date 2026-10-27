@@ -44,25 +44,25 @@ export const workoutDescription: INodeProperties[] = [
 				name: 'Create',
 				value: 'create',
 				description: 'Save a workout you describe exercise by exercise',
-				action: 'Create a workout',
+				action: 'Create workout',
 			},
 			{
 				name: 'Generate',
 				value: 'generate',
 				description: 'Generate and save a workout from a plain-language request',
-				action: 'Generate a workout',
+				action: 'Generate workout',
 			},
 			{
 				name: 'Get',
 				value: 'get',
 				description: 'Get a workout with its exercises and sets',
-				action: 'Get a workout',
+				action: 'Get workout',
 			},
 			{
 				name: 'Update',
 				value: 'update',
 				description: 'Change a workout title, description or exercises',
-				action: 'Update a workout',
+				action: 'Update workout',
 			},
 		],
 		default: 'generate',
@@ -201,7 +201,7 @@ export const workoutCalls: ResourceCalls = {
 			return compact({
 				title: this.getNodeParameter('title', i) as string,
 				description: fields.description,
-				exercises: jsonParameter.call(this, 'exercises', i),
+				exercises: jsonParameter.call(this, 'exercises', 'Exercises', i),
 			});
 		},
 	},
