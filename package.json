@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-justgains",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "n8n node for JustGains: log workouts, food and bodyweight, and read your training history, progress and insights",
 	"license": "MIT",
 	"homepage": "https://github.com/JustGains/n8n-nodes-justgains",

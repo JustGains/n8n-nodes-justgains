@@ -99,6 +99,10 @@ Built with `@n8n/node-cli` 0.54 and tested on self-hosted n8n 2.45.4.
 
 ## Version history
 
+### 0.1.2
+
+Food > Log saves every distinct meal an AI agent logs in one run; retries of the same meal are still saved once.
+
 ### 0.1.1
 
 Limit parameters default to 50, as in other n8n nodes.

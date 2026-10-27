@@ -130,12 +130,27 @@ export function compact(values: IDataObject): IDataObject {
 }
 
 /**
- * A request ID that stays the same when n8n retries the same item in the same execution, so a
- * retried "Log Food" cannot save the meal twice, but differs for every other item and run.
+ * A request ID that stays the same when n8n retries the same meal in the same execution, so a
+ * retried "Log Food" cannot save it twice. The meal itself is part of the hash: an AI agent
+ * logging two meals in one run calls the same node with the same item index, and execution IDs
+ * restart in every n8n instance, so neither alone tells two meals apart.
  */
-export function stableRequestId(this: IExecuteFunctions, itemIndex: number): string {
+export function stableRequestId(
+	this: IExecuteFunctions,
+	itemIndex: number,
+	content: IDataObject,
+): string {
 	const hex = createHash('sha256')
-		.update(`${this.getExecutionId()}:${this.getNode().id}:${itemIndex}`)
+		.update(
+			[
+				this.getInstanceId(),
+				this.getWorkflow().id,
+				this.getExecutionId(),
+				this.getNode().id,
+				itemIndex,
+				JSON.stringify(content),
+			].join(':'),
+		)
 		.digest('hex');
 
 	return [

@@ -177,14 +177,17 @@ export const foodCalls: ResourceCalls = {
 		tool: 'log_my_food',
 		args(i) {
 			const fields = this.getNodeParameter('additionalFields', i, {}) as IDataObject;
-
-			return compact({
-				requestId: (fields.requestId as string) || stableRequestId.call(this, i),
+			const meal = compact({
 				mealSlot: this.getNodeParameter('mealSlot', i) as string,
 				items: jsonParameter.call(this, 'items', 'Foods', i),
 				entryDate: dateOnly(fields.entryDate),
 				loggedAt: fields.loggedAt,
 			});
+
+			return {
+				requestId: (fields.requestId as string) || stableRequestId.call(this, i, meal),
+				...meal,
+			};
 		},
 	},
 	remove: {
